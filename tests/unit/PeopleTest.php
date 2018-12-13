@@ -11,20 +11,16 @@ class PeopleTest extends TestCase
     $this->assertTrue(true);
   }
 
-  public function testTrueAssertsToFalse()
+  public function testGettingGroupAssertsToNotNull()
   {
     $curl = new Curl\Curl();
     try {
-      // Given more time I this is where I'd get the result and do some assertions
-      $curl->get($this->addGroupsUrl);
-      $result = true;
+      $result = $curl->get($this->addGroupsUrl);
     }
     catch (Exception $err) {
-      $result = false;
+      $result = null;
     }
-    
-    echo($result);
 
-    $this->assertTrue($result);
+    $this->assertNotNull($result);
   }
 }

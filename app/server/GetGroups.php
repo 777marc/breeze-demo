@@ -20,7 +20,3 @@ while($r = mysqli_fetch_assoc($sth)) {
 }
 
 echo json_encode($rows);
-
-function some() {
-    return 'this';
-}
