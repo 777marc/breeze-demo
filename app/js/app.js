@@ -35,7 +35,7 @@ $(document).ready(function() {
                   if (JSON.stringify(Object.keys(data[0])) === JSON.stringify(getPersonSchema())) {
                       // save to database
                       addPeople(data);
-                      //$('#people-table').dynatable({ dataset: { records: data }});
+                      $('#people-table').dynatable({ dataset: { records: data }});
                       $('#people-table').show();
                   }
                   else if(JSON.stringify(Object.keys(data[0])) === JSON.stringify(getGroupSchema())) {
