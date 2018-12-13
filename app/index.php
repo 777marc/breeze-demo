@@ -5,23 +5,28 @@
         <title>Breeze ChMS - Demo</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./css/jquery.dynatable.css">
+        <link rel="stylesheet" href="./css/app.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
     <body>
 
-        <div style="width:800px; margin:0 auto; padding: 10px;">
+        <div class="mainDiv shadow">
 
             <div id="dvImportSegments" class="fileupload ">
                 <fieldset>
-                    <div class="card">
+                    <div class="card shadow">
                         <div class="card-body">
                             <h2>Breeze ChMS Parishoner Upload System</h2>
-                            Please upload you Comma Seperated Value file using the following formats:
-                            For People: person_id, first_name, last_name, email_address, group_id, state
-                            For Groups: group_id, group_name
+                            <strong>
+                                Please upload you Comma Seperated Value file using the following formats:
+                            </strong>
+                            <br>
+                            For People: person_id, first_name, last_name, email_address, group_id, state<br>
+                            For Groups: group_id, group_name<br>
+                            <strong>Important Tip!</strong> You must have groups loaded in order to see results of uploading people
                         </div>
                     </div>
+                    <br>
                    <input type="file" name="File Upload" id="txtFileUpload" accept=".csv" />
                 </fieldset>
                 <hr>

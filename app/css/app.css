@@ -1,13 +1,4 @@
-/*
- * jQuery Dynatable plugin 0.3.1
- *
- * Copyright (c) 2014 Steve Schwartz (JangoSteve)
- *
- * Dual licensed under the AGPL and Proprietary licenses:
- *   http://www.dynatable.com/license/
- *
- * Date: Tue Jan 02 2014
- */
+
 th a {
   color: #fff;
 }
@@ -66,4 +57,17 @@ th a:hover {
 .dynatable-disabled-page:hover {
   background: none;
   color: #999;
+}
+
+.mainDiv {
+  width:1000px; 
+  margin:0 auto; 
+  padding: 10px;
+  color: #4075B2;
+}
+
+.shadow {
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
 }

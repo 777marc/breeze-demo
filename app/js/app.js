@@ -5,9 +5,6 @@ $(document).ready(function() {
   $('#errors').hide();
   $('#messages').hide();
 
-  // get already loaded users
-  loadGroups();
-
   // The event listener for the file upload
   document.getElementById('txtFileUpload').addEventListener('change', upload, false);
 
@@ -34,13 +31,15 @@ $(document).ready(function() {
               var csvData = event.target.result;
               data = $.csv.toObjects(csvData.replace(/"/g, ''));
               if (data && data.length > 0) {
-
+                  // here we're checking if the file is a people file or group file
                   if (JSON.stringify(Object.keys(data[0])) === JSON.stringify(getPersonSchema())) {
+                      // save to database
                       addPeople(data);
+                      //$('#people-table').dynatable({ dataset: { records: data }});
                       $('#people-table').show();
-                      loadGroups();
                   }
                   else if(JSON.stringify(Object.keys(data[0])) === JSON.stringify(getGroupSchema())) {
+                      // save to database
                       addGroups(data)
                   }
                   else {
@@ -64,7 +63,9 @@ $(document).ready(function() {
           url: "server/AddPeople.php",
           data: {arr: JSON.stringify(data)},
           success: function(data){
-              showMessage("success in loading people!");},
+              showMessage("success in loading people!");
+              loadGroups();
+          },
           failure: function(errMsg) {
               showError("error:" . errMsg);
           }
@@ -77,7 +78,9 @@ $(document).ready(function() {
           url: "server/AddGroups.php",
           data: {arr: JSON.stringify(data)},
           success: function(data){
-              showMessage("success in loading groups!");},
+              showMessage("success in loading groups!");
+              //loadGroups();
+          },
           failure: function(errMsg) {
               showError("error:" . errMsg);
           }
@@ -85,12 +88,9 @@ $(document).ready(function() {
   }
 
   function loadGroups() {
-      $.get( "server/GetGroups.php", function( data ) {
-          console.log('load',data);
-          if(data != '[]') {
-              $('#people-table').dynatable({ dataset: { records: JSON.parse(data.toString()) }});
-              $('#people-table').show();
-          }
+      $.get( "server/GetGroups.php", function(data) {
+          $('#people-table').dynatable({ dataset: { records: JSON.parse(data)}});
+          $('#people-table').show();
       });
   }
 
