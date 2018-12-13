@@ -9,7 +9,8 @@
     ],
     "require-dev": {
         "phpunit/phpunit": "^6.4",
-        "mockery/mockery": "^1.0"
+        "mockery/mockery": "^1.0",
+        "ixudra/curl": "6.*"
     },
     "autoload": {
         "psr-4": {
@@ -21,5 +22,8 @@
             "Tests\\": "tests/"
         }
     },
-    "license": "MIT"
+    "license": "MIT",
+    "require": {
+        "curl/curl": "^2.2"
+    }
 }
