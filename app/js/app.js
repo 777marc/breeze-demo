@@ -3,6 +3,7 @@ $(document).ready(function() {
   // set default grid visibility
   $('#people-table').hide();
   $('#errors').hide();
+  $('#messages').hide();
 
   // get already loaded users
   loadGroups();
@@ -63,9 +64,9 @@ $(document).ready(function() {
           url: "server/AddPeople.php",
           data: {arr: JSON.stringify(data)},
           success: function(data){
-              console.log("success:",data);},
+              showMessage("success in loading people!");},
           failure: function(errMsg) {
-              console.error("error:",errMsg);
+              showError("error:" . errMsg);
           }
       });
   }
@@ -76,9 +77,9 @@ $(document).ready(function() {
           url: "server/AddGroups.php",
           data: {arr: JSON.stringify(data)},
           success: function(data){
-              console.log("success:",data);},
+              showMessage("success in loading groups!");},
           failure: function(errMsg) {
-              console.error("error:",errMsg);
+              showError("error:" . errMsg);
           }
       });
   }
@@ -87,7 +88,6 @@ $(document).ready(function() {
       $.get( "server/GetGroups.php", function( data ) {
           console.log('load',data);
           if(data != '[]') {
-              console.log('here',data);
               $('#people-table').dynatable({ dataset: { records: JSON.parse(data.toString()) }});
               $('#people-table').show();
           }

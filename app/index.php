@@ -10,21 +10,19 @@
     </head>
     <body>
 
-        <div style="width:800px; margin:0 auto;">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="app/">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="app/help.php">Help</a>
-                    </div>
-                </div>
-            </nav>
+        <div style="width:800px; margin:0 auto; padding: 10px;">
 
             <div id="dvImportSegments" class="fileupload ">
                 <fieldset>
-                    <p>Upload your CSV File</p>
-                        <input type="file" name="File Upload" id="txtFileUpload" accept=".csv" />
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>Breeze ChMS Parishoner Upload System</h2>
+                            Please upload you Comma Seperated Value file using the following formats:
+                            For People: person_id, first_name, last_name, email_address, group_id, state
+                            For Groups: group_id, group_name
+                        </div>
+                    </div>
+                   <input type="file" name="File Upload" id="txtFileUpload" accept=".csv" />
                 </fieldset>
                 <hr>
                 <div id="results-div">

@@ -19,8 +19,12 @@ for($i = 0; $i < count($data); $i++){
 
 $values = substr($values, 0, strlen($values) - 1);
 
-$conn->query($query . $values);
-
-echo('true');
+try {
+  $conn->query($query . $values);
+  echo true;
+}
+catch(Exception $error) {
+  echo false;
+}
 
 $conn->close();
